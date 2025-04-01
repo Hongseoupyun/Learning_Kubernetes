@@ -1,4 +1,4 @@
-## kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
+# kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
 
 📌 Breakdown of Each Command Element
 
@@ -182,3 +182,60 @@ The command may fail without proper input/output handling.
 ✅ This allows you to fully interact with the container, enter commands, and see proper output formatting.
 
 📌 Without -it, kubectl exec often results in unexpected behavior. 🚀
+
+
+# 📌 Understanding wget Command
+
+🔹 What is wget?
+
+wget is a command-line utility used for downloading files from the web using HTTP, HTTPS, and FTP protocols. It is commonly used for retrieving content from web servers.
+
+🔹 Basic Syntax
+
+wget [options] [URL]
+
+🔹 Example: Using wget to Access a Service
+
+wget 10.244.0.10:8080
+
+🔍 Explanation:
+
+wget → The command itself, used to download data.
+
+10.244.0.10 → The IP address of the target server (likely an internal Kubernetes service or container in a pod).
+
+8080 → The port number the service is running on.
+
+✅ What Happens?
+
+This command attempts to retrieve data from 10.244.0.10 on port 8080. If a web service is running at that address, wget will fetch the response (e.g., an HTML page or API response).
+
+🔹 Additional Options
+
+-O <filename> → Save output to a specific file instead of the default (index.html).
+
+-q → Quiet mode (suppresses output).
+
+-S → Show server response headers.
+
+--timeout=<seconds> → Set a timeout limit.
+
+Example:
+
+wget -O output.html 10.244.0.10:8080
+
+📌 Saves the response to output.html instead of displaying it on the terminal.
+
+🔹 Common Issues & Fixes
+
+Connection refused: The service might not be running or the port is incorrect.
+
+Timeout error: Check network connectivity or firewall rules.
+
+Invalid URL: Ensure the correct IP and port are used.
+
+🚀 Summary
+
+✅ wget is a powerful tool for downloading content.
+✅ Can be used for testing service accessibility in Kubernetes.
+✅ Use additional flags for customization and debugging.
