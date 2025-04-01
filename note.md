@@ -1,4 +1,4 @@
-##kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
+## kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
 
 📌 Understanding the -i and -t Options in Depth
 When using kubectl exec -it, the -i (interactive) and -t (tty) options serve distinct functions. To fully grasp these concepts, we need to explore Interactive Mode, STDIN (Standard Input), Terminal, and TTY (Pseudo Terminal) in detail.
@@ -20,20 +20,17 @@ STDERR (Standard Error): The stream used to output error messages.
 
 🔹 What happens without -i?
 
-sh
-Copy
-Edit
-kubectl exec busybox-6c747767dd-jz5zj -- /bin/sh
+``kubectl exec busybox-6c747767dd-jz5zj -- /bin/sh``
+
 The /bin/sh shell starts, but you cannot input commands because STDIN is not open.
 
 The shell may exit immediately as no input can be received.
 
 🔹 What happens with -i?
 
-sh
-Copy
-Edit
-kubectl exec -i busybox-6c747767dd-jz5zj -- /bin/sh
+
+``kubectl exec -i busybox-6c747767dd-jz5zj -- /bin/sh``
+
 The shell starts, and you can now enter commands inside the container (e.g., ls, cd, cat).
 
 2️⃣ -t (TTY) Option: Enables a Pseudo Terminal
@@ -51,10 +48,7 @@ Today, a pseudo-terminal (PTY) is used in software to mimic a real terminal.
 
 🔹 What happens without -t?
 
-sh
-Copy
-Edit
-kubectl exec -i busybox-6c747767dd-jz5zj -- /bin/sh
+``kubectl exec -i busybox-6c747767dd-jz5zj -- /bin/sh``
 The shell starts, but the prompt (/#) may not appear properly.
 
 Output formatting might break, causing weird line breaks or missing characters.
@@ -63,10 +57,7 @@ Some command-line programs (e.g., vi, nano, top) may not work correctly.
 
 🔹 What happens with -t?
 
-sh
-Copy
-Edit
-kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
+``kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh``
 The shell behaves like a real terminal, showing the correct prompt (/#).
 
 The terminal displays output properly, including colors, line breaks, and interactive features.
@@ -101,10 +92,7 @@ The command may fail without proper input/output handling.
 
 📌 Conclusion: Always Use -it for Interactive Shell Sessions!
 
-sh
-Copy
-Edit
-kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh
+``kubectl exec -it busybox-6c747767dd-jz5zj -- /bin/sh``
 ✅ This allows you to fully interact with the container, enter commands, and see proper output formatting.
 
 📌 Without -it, kubectl exec often results in unexpected behavior. 🚀
