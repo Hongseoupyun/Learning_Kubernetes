@@ -8,7 +8,7 @@ Started the tunnel to allow external access:
 ```
 minikube tunnel
 ```
-This command enables Minikube to simulate a cloud LoadBalancer by assigning an external IP (e.g., 127.0.0.1) that routes to the service inside the cluster.
+This command enables Minikube to simulate a cloud LoadBalancer by assigning an external IP (e.g., xxx.0.0.1) that routes to the service inside the cluster.
 
 Applied the following Service definition:
 ```
