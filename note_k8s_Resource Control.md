@@ -59,9 +59,11 @@ spec:
     image: my-app:latest
     resources:
       requests:
+      #In this requests section, It means "Do not schedule the pod unless the node has at least 256Mi of memory and 250m of cpu"
         memory: "256Mi"
         cpu: "250m"
       limits:
+      #In this limit section, It means "Stop running this container if it exceedes using 512Mi of memory and 500m of cpu"
         memory: "512Mi"
         cpu: "500m"
 ```
