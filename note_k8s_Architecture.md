@@ -1,6 +1,3 @@
-![image](https://github.com/user-attachments/assets/0917d454-c63e-48c4-b095-e02f0d69ff96)
-
-
 # 📘 Kubernetes Architecture – Study Notes
 
 ## 🧱 Overview: What is a Kubernetes Cluster?
