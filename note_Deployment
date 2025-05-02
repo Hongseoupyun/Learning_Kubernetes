@@ -1,0 +1,60 @@
+# Kubernetes Pod Management, Stateful Workloads, and Security
+
+## 🧩 Ways to Manage Kubernetes Pods
+
+Kubernetes provides multiple ways to manage pods:
+
+### 1. **Deployment**
+- Most common method to deploy containerized apps.
+- Controls number of replicas.
+- Supports **rolling updates** (no-downtime upgrades).
+- Automatically handles old and new versions of pods.
+
+### 2. **DaemonSet**
+- Ensures one copy of a pod runs **on every node**.
+- Typically used for background agents like:
+  - Node metric collectors
+  - Logging agents
+
+### 3. **Job**
+- Runs one or more pods **until the task completes**.
+- Ideal for **one-time** or **batch processing** tasks.
+- Example: Generate test data in a CI environment.
+
+---
+
+## 💾 Running Stateful Workloads
+
+Two approaches to handle persistent data in Kubernetes:
+
+### 1. **External Database**
+- Host a DB outside the cluster (e.g., Postgres).
+- Use managed services like:
+  - Azure SQL
+  - Amazon RDS
+  - Google Cloud SQL
+
+### 2. **Persistent Volumes (PV)**
+- Storage managed inside the Kubernetes cluster.
+- Data **persists even if pods are deleted**.
+- Use with `StatefulSet` to maintain pod-to-volume mapping.
+
+---
+
+## 🔐 Kubernetes Security Best Practices
+
+Common attack goals:
+- Steal data
+- Run crypto mining
+- Perform DDoS attacks
+
+### 1. **Add Security Context**
+Add the following to your pod spec:
+
+```yaml
+securityContext:
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]
+  readOnlyRootFilesystem: true
