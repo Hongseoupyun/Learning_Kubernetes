@@ -58,3 +58,20 @@ securityContext:
   capabilities:
     drop: ["ALL"]
   readOnlyRootFilesystem: true
+  
+```
+### 2. **Scan YAML with Security Tools**
+Use tools like Snyk to scan manifests:
+
+```
+snyk iac test deployment.yaml
+```
+
+### 3. **Keep Kubernetes Version Updated**
+
+- Always upgrade when security patches are released.
+
+- Follow Kubernetes CVE advisories.
+
+- Reference the NSA Kubernetes Hardening Guide.
+
